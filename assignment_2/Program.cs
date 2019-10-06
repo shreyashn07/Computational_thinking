@@ -17,33 +17,33 @@ namespace _2019_Fall_Assignment2
     {
         public static void Main(string[] args)
         {
-            //int target = 2;
-            //int[] nums = { 1, 3, 5, 6 };
-            //Console.WriteLine("Position to insert {0} is = {1}\n", target, SearchInsert(nums, target));
+            int target = 2;
+            int[] nums = { 1, 3, 5, 6 };
+            Console.WriteLine("Position to insert {0} is = {1}\n", target, SearchInsert(nums, target));
 
-            //int[] nums1 = { 1, 2, 2, 1 };
-            //int[] nums2 = { 2, 2 };
-            //int[] intersect = Intersect(nums1, nums2);
-            //Console.WriteLine("Intersection of two arrays is: ");
-            //DisplayArray(intersect);
-            //Console.WriteLine("\n");
+            int[] nums1 = { 1, 2, 2, 1 };
+            int[] nums2 = { 2, 2 };
+            int[] intersect = Intersect(nums1, nums2);
+            Console.WriteLine("Intersection of two arrays is: ");
+            DisplayArray(intersect);
+            Console.WriteLine("\n");
 
-            //int[] A = { 5, 7, 3, 9, 4, 9, 8, 3, 1 };
-            //Console.WriteLine("Largest integer occuring once = {0}\n", LargestUniqueNumber(A));
+            int[] A = { 5, 7, 3, 9, 4, 9, 8, 3, 1 };
+            Console.WriteLine("Largest integer occuring once = {0}\n", LargestUniqueNumber(A));
 
-            //string keyboard = "abcdefghijklmnopqrstuvwxyz";
-            //string word = "cba";
-            //Console.WriteLine("Time taken to type with one finger = {0}\n", CalculateTime(keyboard, word));
+            string keyboard = "abcdefghijklmnopqrstuvwxyz";
+            string word = "cba";
+            Console.WriteLine("Time taken to type with one finger = {0}\n", CalculateTime(keyboard, word));
 
-            //int[,] image = { { 1, 1, 0 }, { 1, 0, 1 }, { 0, 0, 0 } };
-            //int[,] flipAndInvertedImage = FlipAndInvertImage(image);
-            //Console.WriteLine("The resulting flipped and inverted image is:\n");
-            //Display2DArray(flipAndInvertedImage);
-            //Console.Write("\n");
+            int[,] image = { { 1, 1, 0 }, { 1, 0, 1 }, { 0, 0, 0 } };
+            int[,] flipAndInvertedImage = FlipAndInvertImage(image);
+            Console.WriteLine("The resulting flipped and inverted image is:\n");
+            Display2DArray(flipAndInvertedImage);
+            Console.Write("\n");
 
-            //int[,] intervals = { { 2, 15 }, { 36, 45 }, { 9, 29 }, { 16, 23 }, { 4, 9 } };
-            //int minMeetingRooms = MinMeetingRooms(intervals);
-            //Console.WriteLine("Minimum meeting rooms needed = {0}\n", minMeetingRooms);
+            int[,] intervals = { { 2, 15 }, { 36, 45 }, { 9, 29 }, { 16, 23 }, { 4, 9 } };
+            int minMeetingRooms = MinMeetingRooms(intervals);
+            Console.WriteLine("Minimum meeting rooms needed = {0}\n", minMeetingRooms);
 
             int[] arr = { -4, -1, 0, 3, 10 };
             int[] sortedSquares = SortedSquares(arr);
@@ -51,15 +51,15 @@ namespace _2019_Fall_Assignment2
             DisplayArray(sortedSquares);
             Console.Write("\n");
 
-            //string s = "madam";
-            //if (ValidPalindrome(s))
-            //{
-            //    Console.WriteLine("The given string \"{0}\" can be made PALINDROME", s);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("The given string \"{0}\" CANNOT be made PALINDROME", s);
-            //}
+            string s = "madam";
+            if (ValidPalindrome(s))
+            {
+                Console.WriteLine("The given string \"{0}\" can be made PALINDROME", s);
+            }
+            else
+            {
+                Console.WriteLine("The given string \"{0}\" CANNOT be made PALINDROME", s);
+            }
         }
 
         public static void DisplayArray(int[] a)
@@ -81,6 +81,9 @@ namespace _2019_Fall_Assignment2
                 Console.Write("\n");
             }
         }
+        // logic: 1. We define the start, mid, and end numbers. 
+        //        2. Use the mid to compare the target.
+        // Self-reflection: In this question, we learned how to use binary serach to insert value to a array.
 
         public static int SearchInsert(int[] nums, int target)
         {
@@ -125,6 +128,10 @@ namespace _2019_Fall_Assignment2
 
             return 0;
         }
+        //Logic: 1. Store nums1 all non repeating elements, and the number of repeat times.
+        //       2. Store nums2 with the elements in nums1 is the result.
+        //Self reflection: In this question, we need to know how to find the common elements in two arrays.
+        //                 In this question, we learned that we need to optimize the cost of time and CPU. 
 
         public static int[] Intersect(int[] nums1, int[] nums2)
         {
@@ -314,7 +321,18 @@ namespace _2019_Fall_Assignment2
 
             return A;
         }
+        //Logic: I am sorting the array based on the ending intervals , i will traverse the array later
+        //During my traversal, if the sorted list is empty i will add the value to the sorted list, sorted list
+        //preserves the order based on the ending times
+        //When i encounter an starting time which is starting after the first element in sorted list , i am removing the
+        //element from the sorted list (Decresing the pointer becaus these meetings can happen one after the other because
+        //of the differnece between the start time and end time)
+        //if the starting time is before the ending time , i am increasing the count of the meeting rooms, and the sorted list first
+        //element meeting time will end before any other rooms because we are storing element based on the order of ending timings
 
+       //Self Reflection: I started solution with an variable then after seeing the nuaces of the problem , i understood i need to go
+       //for the queue, it really helped me in gaining a different perspecitve , for a guy who is programming after two years, this was
+       //one of the best learning
         public static int MinMeetingRooms(int[,] intervals)
         {
 
@@ -398,7 +416,9 @@ namespace _2019_Fall_Assignment2
 
         }
         
-
+        //Logic:This was a sorted array , so i divided the array into two parts ,one with positive numbers and other with negative numbers
+        //i started comparing each element with the other element in the array and inserted based on the result
+        //Self Reflections: This helped me in understanding the applications of the mergesort
         public static int[] SortedSquares(int[] A)
         {
             try
@@ -457,6 +477,8 @@ namespace _2019_Fall_Assignment2
 
             return new int[] { };
         }
+        //Logic: I am just comparing the elements, if there are any different one's,i will increment the pointer and see if i can
+        //make a palidrome without the presence of the current element
 
         public static bool ValidPalindrome(string s)
         {

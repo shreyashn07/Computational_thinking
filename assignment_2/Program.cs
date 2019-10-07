@@ -166,6 +166,14 @@ namespace _2019_Fall_Assignment2
 
             return list.ToArray();
         }
+        
+        
+        //Logic – after creating an array we created a dictionary of integer, integer type, we used foreach loop so that it reads every value in the array. We compared every value and if 
+//the value is repeated and is the max number, we will print -1 and if the function as an integer which is present only once it will show that as an output, which is shown in second 
+//foreach loop*/
+// Self Reflection – got to know the basics of how dictionary is to be initiated and how we can use foreach loop instead of multiple loops and also how to use ‘and’ operation for the solving 
+//this kind of problem 
+
 
         public static int LargestUniqueNumber(int[] A)
         {
@@ -203,6 +211,9 @@ namespace _2019_Fall_Assignment2
 
             return 0;
         }
+//Logic – In this the index will start from 0 and will go until 25. Alphabets are written in systematical order, time taken from moving from one key to another is 1, suppose you have to go from a to d, you are already on a
+//so time till d will be 3. And if we have to come back to some key which is behind that the same procedure is to be followed and we have multiplied it with -1, to keep the track and calculate the time.
+//Self Reflection – got to know how to use the concept of dictionary and calculating the count from one key to another. Created a dictionary to store time associated with each character*/
 
         public static int CalculateTime(string keyboard, string word)
         {
@@ -243,6 +254,10 @@ namespace _2019_Fall_Assignment2
 
             return 0;
         }
+    // * Logic - in the first loop we are traversing all the values of the matrix. Later we create a temp variable to swap the values of last and first.
+ //* and so on respectively. After this we traverse through the entire matrix again and converted 0 to 1 and vice versa to get the flipped and inverted matrix*/
+
+    /* Self Reflection - Learnt how to use the multiple loops and I was tangled up again and again doing this. learnt the concept of two dimensional array and its function */
 
         public static int[,] FlipAndInvertImage(int[,] A)
         {
